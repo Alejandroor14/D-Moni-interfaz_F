@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>D´MONI-POST</title>
+    <meta name="description" content="Cafetería D'MONI - Disfruta del mejor café y deliciosos postres." />
+    <meta name="author" content="Cafetería D'MONI" />
+    <title>D´MONI Cafetería</title>
     <link rel="icon" type="image/x-icon" href="assets/logo_dmoni_pos_transparente.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         header.bg-dark.py-5 {
             background-image: url('assets/deacoracion.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center center ;
+            background-position: center center;
         }
 
         header.bg-dark.py-5 .text-white h1,
         header.bg-dark.py-5 .text-white p {
             color: black !important;
         }
+        .navbar-brand img {
+            max-height: 2.5rem; /* Ajusta la altura del logo según necesites */
+            margin-right: 10px; /* Espacio entre el logo y el texto */
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">D´MONI Cafetería</a>
+            <a class="navbar-brand" href="#!">
+                <img src="assets/logo_dmoni_pos_transparente.png" alt="Logo D'MONI" class="d-inline-block align-middle">
+                D´MONI Cafetería
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
@@ -35,10 +43,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">Todos los productos</a></li>
+                            <li><a class="dropdown-item" href="#" data-categoria="todos">Todos los productos</a></li>
                             <li><hr class="dropdown-divider" /></li>
-                            <li><a class="dropdown-item" href="#!">Productos populares</a></li>
-                            <li><a class="dropdown-item" href="#!">Nuevos lanzamientos</a></li>
+                            <li><a class="dropdown-item" href="#" data-categoria="calientes">Bebidas Calientes</a></li>
+                            <li><a class="dropdown-item" href="#" data-categoria="frias">Bebidas Frías</a></li>
+                            <li><a class="dropdown-item" href="#" data-categoria="postres">Postres para compartir</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -62,8 +71,8 @@
     </header>
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <div class="col mb-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="productos-container">
+                <div class="col mb-5 producto" data-categoria="calientes">
                     <div class="card h-100">
                         <img class="card-img-top" src="assets/cafe_blanco.jpeg" alt="Café del día" />
                         <div class="card-body p-4">
@@ -73,11 +82,11 @@
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café del día" data-precio="40.00" data-imagen="assets/cafe_blanco.jpeg">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café del día" data-precio="40.00" data-imagen="assets/cafe_blanco.jpeg" data-opciones='{"leche": ["Regular", "Deslactosada", "Almendra","Sin leche"], "tamano": ["Pequeño", "Mediano", "Grande"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="frias">
                     <div class="card h-100">
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>
                         <img class="card-img-top" src="assets/frapuccino.webp" alt="Frappuccino" />
@@ -96,11 +105,11 @@
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Frappuccino" data-precio="80.00" data-imagen="assets/frapuccino.webp">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Frappuccino" data-precio="80.00" data-imagen="assets/frapuccino.webp" data-opciones='{"tamano": ["Mediano", "Grande"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="calientes">
                     <div class="card h-100">
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>
                         <img class="card-img-top" src="assets/cafe_expreso.jpeg" alt="Café Espresso" />
@@ -112,11 +121,11 @@
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café Espresso" data-precio="50.00" data-imagen="assets/cafe_expreso.jpeg">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café Espresso" data-precio="50.00" data-imagen="assets/cafe_expreso.jpeg" data-opciones='{"tamano": ["Pequeño", "Mediano", "Grande"], "leche": ["Regular", "Deslactosada"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="calientes">
                     <div class="card h-100">
                         <img class="card-img-top" src="assets/cafe_americano.jpeg" alt="Café Americano" />
                         <div class="card-body p-4">
@@ -133,11 +142,11 @@
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café Americano" data-precio="60.00" data-imagen="assets/cafe_americano.jpeg">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Café Americano" data-precio="60.00" data-imagen="assets/cafe_americano.jpeg" data-opciones='{"tamano": ["Pequeño", "Mediano", "Grande"], "leche": ["Regular", "Deslactosada", "Almendra", "Sin Leche"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="calientes">
                     <div class="card h-100">
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>
                         <img class="card-img-top" src="assets/CHOCOLATE.jpeg" alt="Chocolate" />
@@ -149,11 +158,11 @@
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Chocolate" data-precio="70.00" data-imagen="assets/CHOCOLATE.jpeg">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Chocolate" data-precio="70.00" data-imagen="assets/CHOCOLATE.jpeg" data-opciones='{"leche": ["Regular", "Deslactosada", "Almendra"], "tamano": ["Mediano", "Grande"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="postres">
                     <div class="card h-100">
                         <img class="card-img-top" src="assets/pastel_cafe.jpg" alt="Pastel de cafe" />
                         <div class="card-body p-4">
@@ -167,47 +176,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col mb-5">
+                <div class="col mb-5 producto" data-categoria="postres">
                     <div class="card h-100">
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem"></div>
                         <img class="card-img-top" src="assets/muffin.jpg" alt="Muffin" />
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <h5 class="fw-bolder">Muffin</h5>
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <span class="text-muted text-decoration-line-through"></span>
-                                $40.00
+                                $35.00
                             </div>
                         </div>
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Muffin" data-precio="50.00" data-imagen="assets/muffin.jpg">Agregar al carrito</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <img class="card-img-top" src="assets/creepa.jpg" alt="Crepa" />
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <h5 class="fw-bolder">Crepa</h5>
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                $40.00
-                            </div>
-                        </div>
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Crepa" data-precio="40.00" data-imagen="assets/creepa.jpg">Agregar al carrito</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto agregar-carrito" href="#" data-nombre="Muffin" data-precio="35.00" data-imagen="assets/muffin.jpg" data-opciones='{"sabor": ["Chocolate", "Vainilla"]}'>Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
@@ -236,6 +215,23 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
                     <button type="button" class="btn btn-primary" id="ir-a-pagar">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="opcionesProductoModal" tabindex="-1" aria-labelledby="opcionesProductoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="opcionesProductoModalLabel">Elige las opciones</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="opciones-modal-body">
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="agregar-al-carrito-con-opciones">Agregar al carrito</button>
                 </div>
             </div>
         </div>
@@ -282,25 +278,26 @@
     <div class="modal fade" id="pedidoConfirmadoModal" tabindex="-1" aria-labelledby="pedidoConfirmadoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-title" id="pedidoConfirmadoModalLabel">Pedido Confirmado</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-             </div>
-               <div class="modal-body">
-                 <div class="d-flex justify-content-center mb-3">
-                    <img src="assets/logo_dmoni_pos_transparente.png" alt="Gracias por tu compra" class="img-fluid" style="max-width: 150px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pedidoConfirmadoModalLabel">Pedido Confirmado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+               </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="assets/logo_dmoni_pos_transparente.png" alt="Logo D'MONI" class="img-fluid" style="max-width: 150px;">
                     </div>
-                     <p>¡¡En cafetería D´MONI agradecemos tu compra 😊😊!!</p>
-                    <p>Tu pedido ha sido confirmado y esta en proceso </p>
-                 </div>
-                 <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <p>¡¡En Cafetería D´MONI agradecemos tu compra 😊😊!!</p>
+                    <p>Tu pedido ha sido confirmado y está en proceso.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-   </div>
 
- <script>
-      document.addEventListener('DOMContentLoaded', function() {
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
             const botonesAgregar = document.querySelectorAll('.agregar-carrito');
             const carritoContador = document.getElementById('carrito-contador');
             const listaCarrito = document.getElementById('lista-carrito');
@@ -311,95 +308,226 @@
             const pagoModal = new bootstrap.Modal(document.getElementById('pagoModal'));
             const metodoPagoSelect = document.getElementById('metodoPago');
             const datosTarjetaDiv = document.getElementById('datosTarjeta');
+            const opcionesProductoModal = new bootstrap.Modal(document.getElementById('opcionesProductoModal'));
+            const opcionesModalBody = document.getElementById('opciones-modal-body');
+            const agregarAlCarritoConOpcionesBoton = document.getElementById('agregar-al-carrito-con-opciones');
+            const pedidoConfirmadoBody = document.querySelector('#pedidoConfirmadoModal .modal-body');
+            const productosContainer = document.getElementById('productos-container');
+            const dropdownItems = document.querySelectorAll('.dropdown-menu a');
+            const precioProductoModal = document.createElement('p');
+            precioProductoModal.className = 'mt-3 fw-bold';
+
             let contador = 0;
             let carrito = [];
             let totalCompra = 0;
+            let productoSeleccionado;
+            const todosLosProductos = Array.from(productosContainer.querySelectorAll('.producto'));
 
- botonesAgregar.forEach(boton => {
- boton.addEventListener('click', function(event) {
- event.preventDefault();
- contador++;
- carritoContador.textContent = contador;
+            function mostrarProductos(categoria) {
+                productosContainer.innerHTML = '';
+                todosLosProductos.forEach(productoOriginal => {
+                    const producto = productoOriginal.cloneNode(true);
+                    if (categoria === 'todos' || producto.dataset.categoria === categoria) {
+                        productosContainer.appendChild(producto);
+                    }
+                });
+                const nuevosBotonesAgregar = productosContainer.querySelectorAll('.agregar-carrito');
+                nuevosBotonesAgregar.forEach(boton => {
+                    boton.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        productoSeleccionado = {
+                            nombre: this.dataset.nombre,
+                            precioBase: parseFloat(this.dataset.precio),
+                            imagen: this.dataset.imagen,
+                            opciones: JSON.parse(this.dataset.opciones || '{}'),
+                            cantidad: 1,
+                            detalles: {},
+                            precio: parseFloat(this.dataset.precio)
+                        };
 
- const nombreProducto = this.dataset.nombre;
- const precioProducto = parseFloat(this.dataset.precio);
- const imagenProducto = this.dataset.imagen;
- const productoEnCarrito = carrito.find(item => item.nombre === nombreProducto);
+                        if (Object.keys(productoSeleccionado.opciones).length > 0) {
+                            mostrarOpcionesProducto(productoSeleccionado.opciones);
+                            opcionesModalBody.appendChild(precioProductoModal);
+                            opcionesProductoModal.show();
+                        } else {
+                            agregarProductoAlCarrito(productoSeleccionado);
+                        }
+                    });
+                });
+            }
 
- if (productoEnCarrito) {
- productoEnCarrito.cantidad++;
- } else {
- carrito.push({ nombre: nombreProducto, precio: precioProducto, imagen: imagenProducto, cantidad: 1 });
- }
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const categoria = this.dataset.categoria;
+                    mostrarProductos(categoria);
+                });
+            });
 
- actualizarCarrito();
-   });
- });
+            mostrarProductos('todos');
 
- function actualizarCarrito() {
- listaCarrito.innerHTML = '';
- totalCompra = 0;
+            function mostrarOpcionesProducto(opciones) {
+                opcionesModalBody.innerHTML = '';
+                for (const key in opciones) {
+                    if (opciones.hasOwnProperty(key)) {
+                        const label = document.createElement('label');
+                        label.textContent = `${key.charAt(0).toUpperCase() + key.slice(1)}:`;
+                        label.className = 'form-label mt-2';
+                        opcionesModalBody.appendChild(label);
 
- carrito.forEach(producto => {
- const item = document.createElement('li');
- item.className = 'list-group-item d-flex justify-content-between align-items-center';
- item.innerHTML = `
- <div class="d-flex align-items-center">
- <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
- <div>
- <h6 class="my-0">${producto.nombre}</h6>
- <small class="text-muted">Cantidad: ${producto.cantidad}</small>
-</div>
- </div>
- <span class="text-muted">$${(producto.precio * producto.cantidad).toFixed(2)}</span> `;
- listaCarrito.appendChild(item);
- totalCompra += producto.precio * producto.cantidad;
- });
+                        const select = document.createElement('select');
+                        select.className = 'form-select';
+                        select.name = key;
 
- totalCarrito.textContent = `$${totalCompra.toFixed(2)}`;
- }
+                        select.addEventListener('change', function() {
+                            actualizarPrecioConOpciones(productoSeleccionado);
+                        });
 
- irAPagarBoton.addEventListener('click', () => {
- if (carrito.length === 0) {
- alert("El carrito está vacío.");
- return;
- }
- const modalCarrito = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
- modalCarrito.hide();
- pagoModal.show();
- });
+                        opciones[key].forEach(option => {
+                            const optionElement = document.createElement('option');
+                            optionElement.value = option;
+                            optionElement.textContent = option;
+                            select.appendChild(optionElement);
+                        });
+                        opcionesModalBody.appendChild(select);
+                    }
+                }
+                actualizarPrecioConOpciones(productoSeleccionado);
+            }
 
- metodoPagoSelect.addEventListener('change', function() {
- if (this.value === 'tarjeta') {
- datosTarjetaDiv.style.display = 'block';
-} else {
- datosTarjetaDiv.style.display = 'none';
- }
- });
+            function actualizarPrecioConOpciones(producto) {
+                producto.precio = producto.precioBase;
+                let detallesPrecio = '';
+                const selects = opcionesModalBody.querySelectorAll('select');
+                selects.forEach(select => {
+                    const opcionSeleccionada = select.value;
+                    const nombreOpcion = select.name;
 
-finalizarCompraBoton.addEventListener('click', () => {
-const metodoSeleccionado = metodoPagoSelect.value;
- if (metodoSeleccionado === 'tarjeta') {
-const numeroTarjeta = document.getElementById('numeroTarjeta').value;
-const fechaExpiracion = document.getElementById('fechaExpiracion').value;
-const cvv = document.getElementById('cvv').value;
+                    if (nombreOpcion === 'tamano') {
+                        if (opcionSeleccionada === 'Mediano') {
+                            producto.precio += 10;
+                            detallesPrecio += '<br><small class="text-muted">+ $10 por tamaño Mediano</small>';
+                        } else if (opcionSeleccionada === 'Grande') {
+                            producto.precio += 20;
+                            detallesPrecio += '<br><small class="text-muted">+ $20 por tamaño Grande</small>';
+                        }
+                    } else if (nombreOpcion === 'leche') {
+                        if (opcionSeleccionada === 'Deslactosada') {
+                            producto.precio += 5;
+                            detallesPrecio += '<br><small class="text-muted">+ $5 por leche Deslactosada</small>';
+                        } else if (opcionSeleccionada === 'Almendra') {
+                            producto.precio += 10;
+                            detallesPrecio += '<br><small class="text-muted">+ $10 por leche de Almendra</small>';
+                        }
+                    } else if (nombreOpcion === 'sabor') {}
+                });
+                precioProductoModal.textContent = `Precio: $${producto.precio.toFixed(2)}`;
+                precioProductoModal.innerHTML += detallesPrecio;
+            }
 
-//  agregar  los datos de la tarjeta
-if (!numeroTarjeta || !fechaExpiracion || !cvv) {
- alert("Por favor, completa los datos de la tarjeta.");
- return;
-}
- }
+            agregarAlCarritoConOpcionesBoton.addEventListener('click', function() {
+                const selects = opcionesModalBody.querySelectorAll('select');
+                selects.forEach(select => {
+                    productoSeleccionado.detalles[select.name] = select.value;
+                });
+                agregarProductoAlCarrito(productoSeleccionado);
+                opcionesProductoModal.hide();
+            });
 
- carrito = [];
-contador = 0;
- carritoContador.textContent = contador;
- actualizarCarrito();
- pagoModal.hide();
- pedidoConfirmadoModal.show();
- });
- });
-</script>
+            function agregarProductoAlCarrito(producto) {
+                contador++;
+                carritoContador.textContent = contador;
+
+                const productoEnCarrito = carrito.find(item =>
+                    item.nombre === producto.nombre &&
+                    JSON.stringify(item.detalles) === JSON.stringify(producto.detalles)
+                );
+
+                if (productoEnCarrito) {
+                    productoEnCarrito.cantidad++;
+                } else {
+                    carrito.push(producto);
+                }
+
+                actualizarCarrito();
+            }
+
+            function actualizarCarrito() {
+                listaCarrito.innerHTML = '';
+                totalCompra = 0;
+
+                carrito.forEach(producto => {
+                    const item = document.createElement('li');
+                    item.className = 'list-group-item d-flex justify-content-between align-items-center';
+                    let detallesTexto = '';
+                    for (const key in producto.detalles) {
+                        detallesTexto += `<small class="text-muted">${key.charAt(0).toUpperCase() + key.slice(1)}: ${producto.detalles[key]}</small><br>`;
+                    }
+                    item.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                            <div>
+                                <h6 class="my-0">${producto.nombre}</h6>
+                                ${detallesTexto}
+                                <small class="text-muted">Cantidad: ${producto.cantidad}</small>
+                            </div>
+                        </div>
+                        <span class="text-muted">$${(producto.precio * producto.cantidad).toFixed(2)}</span> `;
+                    listaCarrito.appendChild(item);
+                    totalCompra += producto.precio * producto.cantidad;
+                });
+
+                totalCarrito.textContent = `$${totalCompra.toFixed(2)}`;
+            }
+
+            irAPagarBoton.addEventListener('click', () => {
+                if (carrito.length === 0) {
+                    alert("El carrito está vacío.");
+                    return;
+                }
+                const modalCarrito = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
+                modalCarrito.hide();
+                pagoModal.show();
+            });
+
+            metodoPagoSelect.addEventListener('change', function() {
+                if (this.value === 'tarjeta') {
+                    datosTarjetaDiv.style.display = 'block';
+                } else {
+                    datosTarjetaDiv.style.display = 'none';
+                }
+            });
+
+            finalizarCompraBoton.addEventListener('click', () => {
+                const metodoSeleccionado = metodoPagoSelect.value;
+                if (metodoSeleccionado === 'tarjeta') {
+                    const numeroTarjeta = document.getElementById('numeroTarjeta').value;
+                    const fechaExpiracion = document.getElementById('fechaExpiracion').value;
+                    const cvv = document.getElementById('cvv').value;
+
+                    if (!numeroTarjeta || !fechaExpiracion || !cvv) {
+                        alert("Por favor, completa los datos de la tarjeta.");
+                        return;
+                    }
+                }
+
+                pedidoConfirmadoBody.innerHTML = `
+                    <div class="d-flex justify-content-center mb-3">
+                        <img src="assets/logo_dmoni_pos_transparente.png" alt="Logo D'MONI" class="img-fluid" style="max-width: 150px;">
+                    </div>
+                    <p>¡¡En Cafetería D´MONI agradecemos tu compra 😊😊!!</p>
+                    <p>Tu pedido ha sido confirmado y está en proceso.</p>
+                `;
+
+                carrito = [];
+                contador = 0;
+                carritoContador.textContent = contador;
+                actualizarCarrito();
+                pagoModal.hide();
+                pedidoConfirmadoModal.show();
+            });
+        });
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
